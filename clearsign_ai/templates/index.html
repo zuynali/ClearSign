@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ClearSign AI — Document Risk Analyzer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-icon">⚖️</div>
+      <div>
+        <h1>ClearSign AI</h1>
+        <p>AI-Powered Legal &amp; Financial Document Risk Analyzer</p>
+      </div>
+    </div>
+    <div class="header-meta">BSCS24115 · BSCS24063</div>
+  </div>
+  <div class="disclaimer-banner">
+    ⚠️ <strong>Disclaimer:</strong> ClearSign AI is an educational tool only.
+    Outputs do not constitute legal, financial, or medical advice. Always consult qualified professionals.
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════ MAIN -->
+<main class="main-layout">
+
+  <!-- Sidebar tab navigation -->
+  <nav class="sidebar">
+    <button class="tab-btn active" data-tab="contract">
+      <span class="tab-icon">⚖️</span>
+      <span class="tab-label">Contract Scanner</span>
+    </button>
+    <button class="tab-btn" data-tab="privacy">
+      <span class="tab-icon">🔒</span>
+      <span class="tab-label">Privacy Auditor</span>
+    </button>
+    <button class="tab-btn" data-tab="loan">
+      <span class="tab-icon">💰</span>
+      <span class="tab-label">Loan Analyzer</span>
+    </button>
+    <button class="tab-btn" data-tab="medical">
+      <span class="tab-icon">🏥</span>
+      <span class="tab-label">Medical Consent</span>
+    </button>
+    <button class="tab-btn" data-tab="lease">
+      <span class="tab-icon">🏠</span>
+      <span class="tab-label">Lease QA Chat</span>
+    </button>
+  </nav>
+
+  <!-- Content area -->
+  <div class="content-area">
+
+    <!-- ─── TAB 1: Contract Scanner ─────────────────────── -->
+    <section class="tab-panel active" id="tab-contract">
+      <div class="panel-header">
+        <h2>⚖️ Legal Contract Risk Scanner</h2>
+        <p>Paste any contract or upload a PDF. The AI identifies every risky clause, classifies it by severity, and suggests what to negotiate.</p>
+      </div>
+      <div class="input-grid">
+        <div class="input-col">
+          <label class="field-label">Contract Text</label>
+          <textarea id="c1-text" class="doc-textarea" placeholder="Paste your contract text here…&#10;&#10;Supports: Employment agreements, NDAs, service contracts, vendor agreements, SaaS terms, etc."></textarea>
+        </div>
+        <div class="upload-col">
+          <label class="field-label">Or Upload PDF</label>
+          <div class="upload-zone" id="c1-drop">
+            <input type="file" id="c1-file" accept=".pdf" class="file-input" />
+            <div class="upload-placeholder">
+              <div class="upload-icon">📄</div>
+              <p>Drop PDF here or click to browse</p>
+            </div>
+          </div>
+          <button class="primary-btn" id="c1-btn">🔍 Scan for Red Flags</button>
+        </div>
+      </div>
+      <div class="output-area" id="c1-output"></div>
+    </section>
+
+    <!-- ─── TAB 2: Privacy Auditor ───────────────────────── -->
+    <section class="tab-panel" id="tab-privacy">
+      <div class="panel-header">
+        <h2>🔒 Privacy Policy &amp; ToS Auditor</h2>
+        <p>Paste any privacy policy or Terms of Service. The AI grades it A–F, identifies invasive practices, and explains user impact.</p>
+      </div>
+      <div class="input-grid">
+        <div class="input-col">
+          <label class="field-label">Privacy Policy / Terms of Service</label>
+          <textarea id="c2-text" class="doc-textarea" placeholder="Paste the privacy policy or Terms of Service text here…"></textarea>
+        </div>
+        <div class="upload-col">
+          <label class="field-label">Or Upload PDF</label>
+          <div class="upload-zone" id="c2-drop">
+            <input type="file" id="c2-file" accept=".pdf" class="file-input" />
+            <div class="upload-placeholder">
+              <div class="upload-icon">📄</div>
+              <p>Drop PDF here or click to browse</p>
+            </div>
+          </div>
+          <button class="primary-btn" id="c2-btn">🔒 Audit Privacy Policy</button>
+        </div>
+      </div>
+      <div class="output-area" id="c2-output"></div>
+    </section>
+
+    <!-- ─── TAB 3: Loan Analyzer ─────────────────────────── -->
+    <section class="tab-panel" id="tab-loan">
+      <div class="panel-header">
+        <h2>💰 Loan Agreement Hidden Cost Finder</h2>
+        <p>Paste any loan agreement. The AI extracts every financial term, compares it to fair market benchmarks, and flags predatory conditions.</p>
+      </div>
+      <div class="input-grid">
+        <div class="input-col">
+          <label class="field-label">Loan Agreement Text</label>
+          <textarea id="c3-text" class="doc-textarea" placeholder="Paste your loan agreement text here…&#10;&#10;Supports: Personal loans, mortgages, auto loans, payday loans, business loans, etc."></textarea>
+        </div>
+        <div class="upload-col">
+          <label class="field-label">Or Upload PDF</label>
+          <div class="upload-zone" id="c3-drop">
+            <input type="file" id="c3-file" accept=".pdf" class="file-input" />
+            <div class="upload-placeholder">
+              <div class="upload-icon">📄</div>
+              <p>Drop PDF here or click to browse</p>
+            </div>
+          </div>
+          <button class="primary-btn" id="c3-btn">💰 Analyze Loan Terms</button>
+        </div>
+      </div>
+      <div class="output-area" id="c3-output"></div>
+    </section>
+
+    <!-- ─── TAB 4: Medical Consent ────────────────────────── -->
+    <section class="tab-panel" id="tab-medical">
+      <div class="panel-header">
+        <h2>🏥 Medical Consent Form Simplifier</h2>
+        <p>Paste any medical consent form. The AI translates jargon into plain English, highlights risks, and identifies your patient rights.</p>
+      </div>
+      <div class="input-grid">
+        <div class="input-col">
+          <label class="field-label">Medical Consent Form Text</label>
+          <textarea id="c4-text" class="doc-textarea" placeholder="Paste your medical consent form text here…&#10;&#10;Supports: Surgical consents, anesthesia forms, clinical trial consents, procedure authorizations, etc."></textarea>
+        </div>
+        <div class="upload-col">
+          <label class="field-label">Or Upload PDF</label>
+          <div class="upload-zone" id="c4-drop">
+            <input type="file" id="c4-file" accept=".pdf" class="file-input" />
+            <div class="upload-placeholder">
+              <div class="upload-icon">📄</div>
+              <p>Drop PDF here or click to browse</p>
+            </div>
+          </div>
+          <button class="primary-btn" id="c4-btn">🏥 Simplify This Form</button>
+        </div>
+      </div>
+      <div class="output-area" id="c4-output"></div>
+    </section>
+
+    <!-- ─── TAB 5: Lease QA Chat ──────────────────────────── -->
+    <section class="tab-panel" id="tab-lease">
+      <div class="panel-header">
+        <h2>🏠 Commercial &amp; Residential Lease Q&amp;A</h2>
+        <p>Load your lease document, then ask any question in plain English. The AI answers from the document and cites the relevant clause.</p>
+      </div>
+      <div class="lease-layout">
+        <div class="lease-load-col">
+          <h3>Step 1 — Load Your Lease</h3>
+          <label class="field-label">Lease Document Text</label>
+          <textarea id="c5-text" class="doc-textarea short" placeholder="Paste your lease text here…"></textarea>
+          <div class="upload-zone small" id="c5-drop">
+            <input type="file" id="c5-file" accept=".pdf" class="file-input" />
+            <div class="upload-placeholder">
+              <div class="upload-icon">📄</div>
+              <p>Or upload PDF</p>
+            </div>
+          </div>
+          <button class="secondary-btn" id="c5-load-btn">📂 Load Lease Document</button>
+          <div class="status-box" id="c5-status">No lease loaded.</div>
+        </div>
+        <div class="lease-qa-col">
+          <h3>Step 2 — Ask Your Question</h3>
+          <label class="field-label">Your Question</label>
+          <textarea id="c5-question" class="doc-textarea short" placeholder="e.g. Who is responsible for HVAC repairs?&#10;e.g. What is the notice period to terminate?&#10;e.g. Can I sublet my unit?&#10;e.g. What happens if I pay rent late?"></textarea>
+          <button class="primary-btn" id="c5-ask-btn">💬 Ask</button>
+          <div class="chat-history" id="c5-chat"></div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /content-area -->
+</main>
+
+<footer class="site-footer">
+  ClearSign AI &nbsp;|&nbsp; Powered by Groq LLaMA 3.3 70B &nbsp;|&nbsp;
+  Syed Zain Ali (BSCS24115) &amp; Mubeen Butt (BSCS24063) &nbsp;|&nbsp; Assignment 3
+</footer>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
