@@ -11,8 +11,6 @@ import json
 import fitz  # PyMuPDF
 from groq import Groq
 
-# ── API client (key from env var or fallback) ──────────────────────────────────
-# _API_KEY = os.environ.get("GROQ_API_KEY")
 
 api_key = os.environ.get("GROQ_API_KEY")
 
