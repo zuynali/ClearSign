@@ -12,7 +12,7 @@ import fitz  # PyMuPDF
 from groq import Groq
 
 # ── API client (key from env var or fallback) ──────────────────────────────────
-_API_KEY = os.environ.get("GROQ_API_KEY")
+# _API_KEY = os.environ.get("GROQ_API_KEY")
 _client = Groq(api_key=_API_KEY)
 _MODEL  = "llama-3.3-70b-versatile"
 
